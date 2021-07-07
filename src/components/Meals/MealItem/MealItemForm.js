@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import classes from './MealItemForm.module.css';
 import Input from '../../UI/Input';
+import CartProvider  from '../../../store/CartProvider';
 const MealItemForm = props => {
+ 
     return(
+        <CartProvider>
         <form className={classes.form}>
            <Input label="Amount" input={{
                id: 'amount' + props.id,
@@ -11,9 +15,10 @@ const MealItemForm = props => {
                step: '1',
                defaultValue: '1'
            }} />
-            <button>+ Add</button>
+            <button >+ Add</button>
 
         </form>
+        </CartProvider>
     )
 }
 
