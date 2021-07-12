@@ -10,6 +10,7 @@ const cartReducer = (state, action) => {
         case 'ADD':
           const updatedItems = state.items.concat(action.item);
           const updatedTotalAmount = state.totalAmount += action.item.amount * action.item.price;
+          console.log(action.item.amount, action.item.price);
           return{
               items: updatedItems,
               totalAmount: updatedTotalAmount,
@@ -35,7 +36,7 @@ dispatchCartAction({type: "REMOVE", id:id})
     const cartContext =  {
         items : cartState.items,
         totalAmount: cartState.totalAmount,
-        addItem: addItemToCart,
+        additem: addItemToCart,
         removeItem: removeItemFromCart,
     }
 return <CartContext.Provider value ={cartContext}>
